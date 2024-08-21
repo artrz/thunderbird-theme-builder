@@ -9,7 +9,7 @@ an XPI file from it. It can also append a custom css file for theme experiment s
 
 ## Quick start
 
-Run `npx thunderbird-theme-generator` to create the base files:
+Run `npx tbtb init` to create the base files:
 
  - src/themeColors.js - Where the colors are defined.
  - src/themeCustomStyles.scss - To further customization.
