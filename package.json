@@ -1,0 +1,36 @@
+{
+    "name": "thunderbird-theme-builder",
+    "displayName": "Thunderbird Theme Builder",
+    "description": "Easily create Thunderbird themes.",
+    "version": "0.1.0",
+    "license": "GPL-3.0",
+    "author": {
+        "name": "Arturo Rodríguez",
+        "url": "https://github.com/artrz"
+    },
+    "keywords": [
+        "thunderbird",
+        "theme",
+        "builder",
+        "generator",
+        "xpi"
+    ],
+    "homepage": "https://github.com/artrz/thunderbird-theme-builder/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/artrz/thunderbird-theme-builder"
+    },
+    "bugs": {
+        "url": "https://github.com/artrz/thunderbird-theme-builder/issues"
+    },
+    "dependencies": {
+        "adm-zip": "^0.5.15",
+        "joi": "^17.13.3",
+        "sass": "^1.77.8"
+    },
+    "devDependencies": {
+        "@types/adm-zip": "^0.5.5",
+        "@types/node": "20.x",
+        "typescript": "^5.5.4"
+    }
+}
