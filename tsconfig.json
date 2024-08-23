@@ -1,0 +1,32 @@
+// https://www.typescriptlang.org/tsconfig/
+{
+    "compilerOptions": {
+        /* Language and Environment */
+        "target": "ES2022",
+
+        /* Modules */
+        "module": "Node16", /* Required to configure `"resolveJsonModule": true`. */
+        "resolveJsonModule": true, /* Using this so tests can import the package.json file. */
+        "allowJs": true, /* So we can import js files, like stubs. */
+
+        /* Emit */
+        "removeComments": true,
+        "sourceMap": true,
+        "outDir": "dist",
+
+        /* Interop Constraints */
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
+
+        /* Type Checking */
+        "strict": true, /* enable all strict type-checking options */
+
+        /* Completeness */
+        "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+    },
+    "exclude": [
+        "dist",
+        "node_modules",
+        "**/*.test.ts"
+    ]
+}
