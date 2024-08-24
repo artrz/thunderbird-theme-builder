@@ -175,6 +175,8 @@ function findDupes(array: string[]): string[] {
 function getColorConfigKeys(): string[] {
     const themeColors = (stub as ThemeConfig).theme_colors;
 
+    // The sub does have `theme_colors` defined.
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return Object.keys(themeColors!);
 }
 

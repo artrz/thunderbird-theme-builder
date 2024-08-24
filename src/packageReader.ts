@@ -23,10 +23,13 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
 }
 
 function getThemePackage(): ThemePackage {
+    // Assume the parsed object corresponds to a ThemePackage type.
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const themePackage: ThemePackage = JSON.parse(storage.readFile('package.json'));
 
     if (!(themePackage as Partial<ThemePackage>).extra) {
         themePackage.extra = {
+            // @ts-expect-error -- Just make sure the extra.thunderbird property exists.
             thunderbird: {},
         };
     }
