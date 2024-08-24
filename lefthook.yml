@@ -1,0 +1,17 @@
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: "*.{ts}"
+      run: npx eslint {staged_files}
+    types:
+      glob: "*.{ts}"
+      run: npx tsc --noEmit
+
+pre-push:
+  commands:
+    packages-audit:
+      tags: security
+      run: npm audit

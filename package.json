@@ -31,6 +31,7 @@
         "tbtb": "./dist/cli/index.js"
     },
     "scripts": {
+        "init": "lefthook install",
         "esbuild": "node esbuild.js",
         "tscheck": "tsc --noEmit",
         "watch:esbuild": "npm run esbuild -- --watch",
@@ -56,6 +57,7 @@
         "@types/node": "22.x",
         "esbuild": "^0.23.1",
         "eslint": "^9.9.0",
+        "lefthook": "^1.7.14",
         "npm-run-all": "^4.1.5",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.2.0"
