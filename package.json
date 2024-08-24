@@ -40,7 +40,10 @@
         "lint": "eslint src",
         "inspect": "npm run tscheck && npm run lint",
         "compile": "npm run inspect && npm run esbuild -- --production",
-        "pack": "npm run compile && npm pack"
+        "pack": "npm run compile && npm pack",
+        "bump": "npm run inspect && npx @favware/cliff-jumper",
+        "debump": "git reset --soft HEAD~1 ; git tag --delete",
+        "publish": "git push && git push --tags"
     },
     "dependencies": {
         "adm-zip": "^0.5.15",
@@ -49,6 +52,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.9.0",
+        "@favware/cliff-jumper": "^4.0.3",
         "@stylistic/eslint-plugin": "^2.6.4",
         "@typescript-eslint/eslint-plugin": "^8.2.0",
         "@typescript-eslint/parser": "^8.2.0",
