@@ -1,5 +1,4 @@
 #   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
-#   https://github.com/evilmartians/lefthook/blob/master/docs/usage.md#commitlint-example
 
 pre-commit:
   parallel: true
@@ -7,6 +6,9 @@ pre-commit:
     eslint:
       glob: "*.{ts}"
       run: npx eslint {staged_files}
+    types:
+      glob: "*.{ts}"
+      run: npx tsc --noEmit
 
 pre-push:
   commands:
