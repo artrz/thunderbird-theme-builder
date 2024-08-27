@@ -91,11 +91,4 @@ export default tseslint.config(
             'sort-keys': 'off',
         },
     },
-    {
-        name: 'Stubs',
-        files: ['src/stubs/**/*.js'],
-        rules: {
-            '@typescript-eslint/no-unsafe-call': 'off',
-        },
-    },
 );
