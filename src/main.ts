@@ -5,7 +5,7 @@ import storage from './storage.js';
 import styleParser from './styleParser.js';
 import themeConfigParser from './themeConfigParser.js';
 
-export function build(themeConfig: ThemeConfig, config?: ThunderbirdPackage): void {
+export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPackage>): void {
     const themePackage = getThemePackage(config);
     const thunderbirdPackage = themePackage.extra.thunderbird;
 
