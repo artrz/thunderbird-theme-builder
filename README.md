@@ -59,6 +59,12 @@ This is an empty file where you can add your custom styles.
 The theme builder supports CSS, SCSS and SASS files. If you prefer to use a different file type, besides changing the file extension
 you need to update the filename on the building settings.
 
+```css
+body {
+  background-color: var(--color_foo); /* defined in color_scheme.color_foo */
+}
+```
+
 ### build.js
 
 Use this file to build the theme. Easiest way is by adding a NPM script in package.json to run it:
@@ -117,7 +123,7 @@ package.json structure:
 ```
 
 There are two ways to compliment / override the theme properties, by adding the values inside package.json
-or by setting them as a parameter on the build script.
+or by setting them as a parameter in the build script.
 
 #### Configuring in package.json
 
@@ -137,7 +143,7 @@ Properties must be added inside `extra.thunderbird`, e.g.:
 
 #### Setting theme properties as parameter
 
-An object containing all the properties to configure can be passed a parameter to the build function, e.g.:
+Add an object containing the properties to configure as second parameter of the build function call, e.g.:
 
 ```js
 // build.js
