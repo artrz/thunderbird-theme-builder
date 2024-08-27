@@ -11,13 +11,13 @@ an XPI file from it. It can also append a custom css file for theme experiment s
 
 Run `npx tbtb init` to create the base files:
 
- - src/themeColors.js - Where the colors are defined.
+ - src/themeConfig.js - Where the colors are defined.
  - src/themeCustomStyles.scss - To further customization.
  - src/build.js - Script to build the theme.
 
 ## Configuration
 
-### themeColors.js
+### themeConfig.js
 
 This file contains an object with three properties: `color_scheme`, `theme_colors` and `theme_experiment_colors`.
 The values from the `color_scheme` are inserted as `theme_colors` and `theme_experiment_colors`. Besides replacing the key, the `color_scheme` is also added as

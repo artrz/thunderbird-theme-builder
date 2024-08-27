@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import stub from './stubs/themeColors.js';
+import stub from './stubs/themeConfig.js';
 
 export default {
     /**
