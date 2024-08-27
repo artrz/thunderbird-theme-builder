@@ -76,6 +76,9 @@ export default tseslint.config(
         },
         rules: {
             '@typescript-eslint/no-require-imports': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
             '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
         },
     },

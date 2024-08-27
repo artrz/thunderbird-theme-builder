@@ -60,6 +60,9 @@ async function main() {
         entryPoints: ['src/main.ts'],
         outfile: 'dist/index.js',
         platform: 'node',
+
+        target: 'esnext',
+        format: 'esm',
         bundle: true,
 
         external: Object.keys(dependencies),

@@ -23,6 +23,7 @@
     "bugs": {
         "url": "https://github.com/artrz/thunderbird-theme-builder/issues"
     },
+    "type": "module",
     "main": "dist/index.js",
     "files": [
         "dist"
