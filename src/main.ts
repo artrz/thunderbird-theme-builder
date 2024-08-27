@@ -1,9 +1,9 @@
-import getThemePackage from './packageReader';
-import manifestGenerator from './manifestGenerator';
+import getThemePackage from './packageReader.ts';
+import manifestGenerator from './manifestGenerator.ts';
 import path from 'path';
-import storage from './storage';
-import styleParser from './styleParser';
-import themeConfigParser from './themeConfigParser';
+import storage from './storage.ts';
+import styleParser from './styleParser.ts';
+import themeConfigParser from './themeConfigParser.ts';
 
 export function build(themeConfig: ThemeConfig, config?: ThunderbirdPackage): void {
     const themePackage = getThemePackage(config);

@@ -22,7 +22,6 @@ export default tseslint.config(
     ...tseslint.configs.stylisticTypeChecked,
     {
         plugins: {
-            // @ts-expect-error -- When adding `"allowJs": true` to tsconfig.json, this appears as error
             '@stylistic': stylistic,
         },
         rules: {

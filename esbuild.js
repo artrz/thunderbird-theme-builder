@@ -1,6 +1,6 @@
-const esbuild = require('esbuild');
-const fs = require('fs');
-const { dependencies } = require('./package.json');
+import { cpSync, rmSync } from 'fs';
+import { context } from 'esbuild';
+import packageJson from './package.json' with { type: 'json' };
 
 const production = process.argv.includes('--production');
 const watch = process.argv.includes('--watch');
@@ -29,11 +29,11 @@ const esbuildProblemMatcherPlugin = {
  * This plugin allows to copy files to the built package.
  * @param {{src: string, dest: string}} options
  */
-const esbuildCopyFilesPlugin = (options = {}) => {
+const esbuildCopyFilesPlugin = (options = {}) =>
     /**
     * @type {import('esbuild').Plugin}
     */
-    const plugin = {
+    ({
         name: 'copy-files',
 
         setup(build) {
@@ -41,7 +41,7 @@ const esbuildCopyFilesPlugin = (options = {}) => {
                 console.log(`[watch] Coping to ${options.dest}`);
             });
             build.onEnd(() => {
-                fs.cpSync(options.src, options.dest, {
+                cpSync(options.src, options.dest, {
                     dereference: true,
                     preserveTimestamps: true,
                     recursive: true,
@@ -49,14 +49,13 @@ const esbuildCopyFilesPlugin = (options = {}) => {
                 console.log(`[watch] Copied ${options.dest}`);
             });
         },
-    };
-    return plugin;
-};
+    })
+;
 
 async function main() {
-    fs.rmSync('dist', { force: true, recursive: true });
+    rmSync('dist', { force: true, recursive: true });
 
-    const ctx = await esbuild.context({
+    const ctx = await context({
         entryPoints: ['src/main.ts'],
         outfile: 'dist/index.js',
         platform: 'node',
@@ -65,7 +64,7 @@ async function main() {
         format: 'esm',
         bundle: true,
 
-        external: Object.keys(dependencies),
+        external: Object.keys(packageJson.dependencies),
 
         minify: production,
         sourcemap: !production,
