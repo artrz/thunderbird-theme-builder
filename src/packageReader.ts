@@ -1,4 +1,4 @@
-import storage from './storage.ts';
+import storage from './storage.js';
 
 export default function packageReader(config?: Partial<ThunderbirdPackage>): ThemePackage {
     const themePackage = getThemePackage();

@@ -15,9 +15,6 @@
         "sourceMap": true,
         "outDir": "dist",
 
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
-
         /* Interop Constraints */
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
