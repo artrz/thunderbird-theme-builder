@@ -22,7 +22,6 @@ export default tseslint.config(
     ...tseslint.configs.stylisticTypeChecked,
     {
         plugins: {
-            // @ts-expect-error -- When adding `"allowJs": true` to tsconfig.json, this appears as error
             '@stylistic': stylistic,
         },
         rules: {
@@ -76,6 +75,9 @@ export default tseslint.config(
         },
         rules: {
             '@typescript-eslint/no-require-imports': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/no-unsafe-member-access': 'off',
             '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
         },
     },

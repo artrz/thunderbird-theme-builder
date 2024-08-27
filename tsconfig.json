@@ -2,17 +2,21 @@
 {
     "compilerOptions": {
         /* Language and Environment */
-        "target": "ES2022",
+        "target": "ESNext",
 
         /* Modules */
-        "module": "Node16", /* Required to configure `"resolveJsonModule": true`. */
+        "module": "ESNext", /* Required to configure `"resolveJsonModule": true`. */
         "resolveJsonModule": true, /* Using this so tests can import the package.json file. */
+        "moduleResolution": "Bundler",
         "allowJs": true, /* So we can import js files, like stubs. */
 
         /* Emit */
         "removeComments": true,
         "sourceMap": true,
         "outDir": "dist",
+
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
 
         /* Interop Constraints */
         "esModuleInterop": true,
@@ -22,7 +26,7 @@
         "strict": true, /* enable all strict type-checking options */
 
         /* Completeness */
-        "skipLibCheck": true, /* Skip type checking all .d.ts files. */
+        "skipLibCheck": true /* Skip type checking all .d.ts files. */
     },
     "exclude": [
         "dist",
