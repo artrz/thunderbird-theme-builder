@@ -1,6 +1,6 @@
 import * as sass from 'sass';
 import path from 'path';
-import storage from './storage.ts';
+import storage from './storage.js';
 
 export default {
     processFile(filePath?: string): ReadFile | undefined {
