@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const fs = require('fs');
+import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
+import { join } from 'path';
 
 /**
  * @param {{cmd: string, args: {verbose: number}}} command
@@ -20,12 +20,12 @@ function copyTemplates(args) {
     const options = { ...{ srcDir: 'src' }, ...args };
     const { verbose } = args;
 
-    ensurePath(path.join(options.srcDir), verbose);
+    ensurePath(join(options.srcDir), verbose);
 
-    const stubsDir = path.join(__dirname, '..', 'stubs');
+    const stubsDir = join(import.meta.dirname, '..', 'stubs');
 
-    fs.readdirSync(stubsDir).forEach(
-        (file) => { copyFile(path.join(stubsDir, file), path.join(options.srcDir, file), verbose); },
+    readdirSync(stubsDir).forEach(
+        (file) => { copyFile(join(stubsDir, file), join(options.srcDir, file), verbose); },
     );
 }
 
@@ -41,8 +41,8 @@ function copyFile(sourceFilePath, destinyFilePath, verbose) {
     else if (verbose === 2) {
         console.log(`Copying '${sourceFilePath}' to '${destinyFilePath}'.`);
     }
-    if (!fs.existsSync(destinyFilePath)) {
-        fs.copyFileSync(sourceFilePath, destinyFilePath);
+    if (!existsSync(destinyFilePath)) {
+        copyFileSync(sourceFilePath, destinyFilePath);
     }
     else if (verbose > 0) {
         console.log(`File '${destinyFilePath}' already exists.`);
@@ -54,11 +54,11 @@ function copyFile(sourceFilePath, destinyFilePath, verbose) {
  * @param {number} verbose
  */
 function ensurePath(requiredPath, verbose) {
-    if (!fs.existsSync(requiredPath)) {
+    if (!existsSync(requiredPath)) {
         if (verbose > 0) {
             console.log(`Creating path '${requiredPath}'.`);
         }
-        fs.mkdirSync(requiredPath, { recursive: true });
+        mkdirSync(requiredPath, { recursive: true });
     }
     else if (verbose === 2) {
         console.log(`Path '${requiredPath}' already exists.`);
