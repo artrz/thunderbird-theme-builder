@@ -51,7 +51,7 @@
         "publish": "git push && git push --tags"
     },
     "dependencies": {
-        "adm-zip": "^0.5.15",
+        "adm-zip": "^0.5.16",
         "joi": "^17.13.3",
         "sass": "^1.77.8"
     },
