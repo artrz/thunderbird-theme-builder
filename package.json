@@ -48,7 +48,7 @@
         "pack": "npm run compile && npm pack",
         "bump": "npm run inspect && npx @favware/cliff-jumper",
         "debump": "git reset --soft HEAD~1 ; git tag --delete",
-        "publish": "git push && git push --tags"
+        "publish": "git push origin main && git push --tags"
     },
     "dependencies": {
         "adm-zip": "^0.5.16",
