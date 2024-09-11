@@ -1,7 +1,7 @@
 node_modules/
 
 # Directory containing esbuild compiled code
-/dist
+# /dist
 # Directory containing tsc compiled code (tests)
 /out
 # Directory containing the built theme when testing
