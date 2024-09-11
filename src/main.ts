@@ -24,9 +24,14 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
     const styleFilePath = styleParser.getStyleFilePath(thunderbirdPackage);
 
     const css = styleParser.processFile(styleFilePath);
-    const theme = themeConfigParser.parse(themeConfig);
+    const themeColors = themeConfigParser.parseColors(themeConfig);
 
-    const manifest = manifestGenerator.generate(theme, themePackage, css?.filename);
+    const manifest = manifestGenerator.generate(
+        themeColors,
+        themeConfig.images,
+        themePackage,
+        css?.filename,
+    );
 
     const themeFilepath = pack(manifest, themePackage, css);
 
@@ -36,7 +41,7 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
 function pack(manifest: Manifest, themePackage: ThemePackage, css?: ReadFile): string {
     const files = [{
         filename: 'manifest.json',
-        content: JSON.stringify(manifest),
+        content: JSON.stringify(manifest, null, 1),
     }];
 
     if (css) {

@@ -26,7 +26,7 @@ theme-experiment colors so they can be on the style file for further customizati
 ```js
 module.exports = {
     // This is where the custom colors are defined. You can use any string as key name.
-    // The colors defined here will be also added as css variables with `--` appended.
+    // The colors defined here will be also added as css variables, prefixed with `--`.
     color_scheme: {
         color_foo: '#2E3440', // Will be available as --color_foo
         color_bar: '#3B4252', // Will be available as --color_bar
@@ -50,6 +50,11 @@ module.exports = {
         '--button-primary-text-color': 'color_bar',
         ...
     },
+
+    // Using the images property it's possible to configure images to include in the theme
+    images: {
+        theme_frame: 'frame_image.png',
+    }
 };
 ```
 
@@ -57,7 +62,7 @@ module.exports = {
 
 This is an empty file where you can add your custom styles.
 The theme builder supports CSS, SCSS and SASS files. If you prefer to use a different file type, besides changing the file extension
-you need to update the filename on the building settings.
+you need to update the filename in the build settings.
 
 ```css
 body {
@@ -122,7 +127,7 @@ package.json structure:
 }
 ```
 
-There are two ways to compliment / override the theme properties, by adding the values inside package.json
+There are two ways to set/override the theme properties, by adding the values inside package.json
 or by setting them as a parameter in the build script.
 
 #### Configuring in package.json

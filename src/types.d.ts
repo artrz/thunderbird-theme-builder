@@ -13,6 +13,7 @@ interface Manifest {
     };
     theme: {
         colors: ThemeColors;
+        images?: Record<string, string>;
     };
     theme_experiment: {
         stylesheet?: string;
@@ -28,6 +29,7 @@ interface ThemeConfig {
     color_scheme: ColorScheme;
     theme_colors?: Record<string, string>;
     theme_experiment_colors?: Record<string, string>;
+    images?: Record<string, string>;
 }
 
 type ColorScheme = Record<string, string>;

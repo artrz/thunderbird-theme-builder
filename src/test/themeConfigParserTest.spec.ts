@@ -22,7 +22,7 @@ describe('themeConfigParser', () => {
                 },
             };
 
-            const generated = themeConfigParser.parse(themeConfig);
+            const generated = themeConfigParser.parseColors(themeConfig);
             expect(generated).to.deep.equal(expected);
         });
     });

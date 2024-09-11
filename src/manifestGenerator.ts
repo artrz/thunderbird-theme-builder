@@ -2,7 +2,8 @@ import Joi from 'joi';
 
 export default {
     generate(
-        generatedThemeColors: GeneratedThemeColors,
+        themeColors: GeneratedThemeColors,
+        themeImages: Record<string, string> | undefined,
         themePackage: ThemePackage,
         cssFilename?: string,
     ): Manifest {
@@ -24,11 +25,12 @@ export default {
                 },
             },
             theme: {
-                colors: generatedThemeColors.colors,
+                colors: themeColors.colors,
+                images: themeImages,
             },
             theme_experiment: {
                 stylesheet: cssFilename,
-                colors: generatedThemeColors.experimentColors,
+                colors: themeColors.experimentColors,
             },
         };
     },

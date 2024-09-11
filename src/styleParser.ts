@@ -6,7 +6,7 @@ export default {
     processFile(filePath?: string): ReadFile | undefined {
         return filePath
             ? {
-                    content: sass.compile(filePath, { style: 'compressed' }).css,
+                    content: sass.compile(filePath, { style: 'expanded' }).css, // or 'compressed'
                     filename: path.format({ ...path.parse(filePath), dir: '', base: '', ext: '.css' }),
                 }
             : undefined;
