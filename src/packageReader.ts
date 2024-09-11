@@ -17,6 +17,7 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
         },
         srcDir: props.srcDir ?? 'src',
         outDir: props.outDir ?? 'build',
+        assetsDir: props.assetsDir,
     };
 
     return themePackage;

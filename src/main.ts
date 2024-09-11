@@ -1,6 +1,7 @@
 import getThemePackage from './packageReader.js';
 import manifestGenerator from './manifestGenerator.js';
 import path from 'path';
+import { readdirSync } from 'fs';
 import storage from './storage.js';
 import styleParser from './styleParser.js';
 import themeConfigParser from './themeConfigParser.js';
@@ -24,9 +25,14 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
     const styleFilePath = styleParser.getStyleFilePath(thunderbirdPackage);
 
     const css = styleParser.processFile(styleFilePath);
-    const theme = themeConfigParser.parse(themeConfig);
+    const themeColors = themeConfigParser.parseColors(themeConfig);
 
-    const manifest = manifestGenerator.generate(theme, themePackage, css?.filename);
+    const manifest = manifestGenerator.generate(
+        themeColors,
+        themeConfig.images,
+        themePackage,
+        css?.filename,
+    );
 
     const themeFilepath = pack(manifest, themePackage, css);
 
@@ -34,15 +40,22 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
 }
 
 function pack(manifest: Manifest, themePackage: ThemePackage, css?: ReadFile): string {
-    const files = [{
+    const files: (string | ReadFile)[] = [{
         filename: 'manifest.json',
-        content: JSON.stringify(manifest),
+        content: JSON.stringify(manifest, null, 1),
     }];
 
     if (css) {
         files.push({
             filename: css.filename,
             content: css.content,
+        });
+    }
+
+    if (themePackage.extra.thunderbird.assetsDir) {
+        const { assetsDir } = themePackage.extra.thunderbird;
+        readdirSync(assetsDir).forEach((file) => {
+            files.push(path.join(assetsDir, file));
         });
     }
 

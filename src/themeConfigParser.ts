@@ -6,7 +6,7 @@ export default {
      * Generates the theme colors for manifest's theme.colors and theme_experiment.colors.
      * The generated colors include
      */
-    parse(themeConfig: ThemeConfig): GeneratedThemeColors {
+    parseColors(themeConfig: ThemeConfig): GeneratedThemeColors {
         const colors = generateMainThemeColors(
             themeConfig.color_scheme,
             themeConfig.theme_colors ?? {},
@@ -40,6 +40,9 @@ export default {
                 .pattern(Joi.string(), Joi.string()),
 
             theme_experiment_colors: Joi.object()
+                .pattern(Joi.string(), Joi.string()),
+
+            images: Joi.object()
                 .pattern(Joi.string(), Joi.string()),
         });
 

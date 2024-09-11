@@ -20,13 +20,13 @@ Run `npx tbtb init` to create the base files:
 ### themeConfig.js
 
 This file contains an object with three properties: `color_scheme`, `theme_colors` and `theme_experiment_colors`.
-The values from the `color_scheme` are inserted as `theme_colors` and `theme_experiment_colors`. Besides replacing the key, the `color_scheme` is also added as
-theme-experiment colors so they can be on the style file for further customization.
+The values from the `color_scheme` are inserted as `theme_colors` and `theme_experiment_colors`.
+Besides replacing the key, the `color_scheme` is also added as theme-experiment colors so they can be on the style file for further customization.
 
 ```js
 module.exports = {
     // This is where the custom colors are defined. You can use any string as key name.
-    // The colors defined here will be also added as css variables with `--` appended.
+    // The colors defined here will be also added as css variables, prefixed with `--`.
     color_scheme: {
         color_foo: '#2E3440', // Will be available as --color_foo
         color_bar: '#3B4252', // Will be available as --color_bar
@@ -50,6 +50,12 @@ module.exports = {
         '--button-primary-text-color': 'color_bar',
         ...
     },
+
+    // Using the images property it's possible to configure images to include in the theme.
+    // For this to work the assets directory must be configured on the build properties.
+    images: {
+        theme_frame: 'frame_image.png',
+    }
 };
 ```
 
@@ -57,11 +63,15 @@ module.exports = {
 
 This is an empty file where you can add your custom styles.
 The theme builder supports CSS, SCSS and SASS files. If you prefer to use a different file type, besides changing the file extension
-you need to update the filename on the building settings.
+you need to update the filename in the build settings.
+It's also possible to use custom images as part of the styles.
 
 ```css
 body {
   background-color: var(--color_foo); /* defined in color_scheme.color_foo */
+}
+.overridden-class {
+    background-image: url('my_file.png');
 }
 ```
 
@@ -79,6 +89,12 @@ Use this file to build the theme. Easiest way is by adding a NPM script in packa
 
 
 ## Theme properties
+
+### Images
+
+As previously mentioned there are two ways to use images: setting images as resources for the theme and using them as part of the custom styling.
+After configuring the assets directory and placing the images there, all of them are going to be copied to the root directory of the theme
+so to refer to them it's only required to use the filename.
 
 ### Default values
 
@@ -111,18 +127,18 @@ See [src/manifestGenerator.ts](src/manifestGenerator.ts) for the actual implemen
 
 ### Configuring / overriding properties
 
-The following object contains the minimum properties to compliment what cannot be obtained from the standard
-package.json structure:
+There are two values which cannot be obtained from the default package.json structure:
+the theme's id and the minimum required Thunderbird version.
+The following object shows how to configure them:
 
 ```js
 {
-    themeId: 'customthemeid@domain.ext' // Email or UUID as Thunderbird requirement.
+    themeId: 'customthemeid@domain.ext' // Email or UUID as per Thunderbird requirements.
     thunderbirdMinVersion: '128' // Configures strict_min_version.
-    stylesheet: 'style.css' // The style filename.
 }
 ```
 
-There are two ways to compliment / override the theme properties, by adding the values inside package.json
+There are two ways to set/override the theme properties, by adding the values inside package.json
 or by setting them as a parameter in the build script.
 
 #### Configuring in package.json
@@ -135,7 +151,6 @@ Properties must be added inside `extra.thunderbird`, e.g.:
         "thunderbird": {
             "themeId": "customthemeid@domain.ext",
             "thunderbirdMinVersion": "128",
-            "stylesheet": "style.css"
         }
     }
 }
@@ -151,11 +166,12 @@ Add an object containing the properties to configure as second parameter of the 
 build(theme, {
     themeId: 'customthemeid@domain.ext',
     thunderbirdMinVersion: '128',
-    stylesheet: 'style.css',
 });
 ```
 
 #### Full configuration
+
+The default full configuration used when building the theme is:
 
 ```js
 {
@@ -170,8 +186,20 @@ build(theme, {
     },
     srcDir: 'src', // This defines the source location.
     outDir: 'build', // This defines where the XPI file is going to be placed.
+    assetsDir: undefined, // Define the directory containing the theme images.
 }
 ```
+
+The most common case would be to use the following object as configuration:
+
+```js
+{
+    thunderbirdMinVersion: '128.0',
+    stylesheet: 'themeCustomStyles.scss',
+    assetsDir: 'src/assets',
+}
+```
+
 
 ## Build
 
