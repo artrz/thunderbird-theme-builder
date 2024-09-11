@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import storage from './storage';
 
 export default {
     generate(
@@ -72,10 +73,16 @@ export default {
                         .required(),
                     outDir: Joi.string()
                         .required(),
+                    assetsDir: Joi.string(),
                 }),
             }),
         }).unknown();
 
         Joi.assert(themePackage, schema);
+
+        const properties = themePackage.extra.thunderbird;
+        if (properties.assetsDir && !storage.pathExists(properties.assetsDir)) {
+            throw new Error(`Invalid assets directory '${properties.assetsDir}'`);
+        }
     },
 };

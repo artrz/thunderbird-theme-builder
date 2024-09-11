@@ -20,8 +20,8 @@ Run `npx tbtb init` to create the base files:
 ### themeConfig.js
 
 This file contains an object with three properties: `color_scheme`, `theme_colors` and `theme_experiment_colors`.
-The values from the `color_scheme` are inserted as `theme_colors` and `theme_experiment_colors`. Besides replacing the key, the `color_scheme` is also added as
-theme-experiment colors so they can be on the style file for further customization.
+The values from the `color_scheme` are inserted as `theme_colors` and `theme_experiment_colors`.
+Besides replacing the key, the `color_scheme` is also added as theme-experiment colors so they can be on the style file for further customization.
 
 ```js
 module.exports = {
@@ -51,7 +51,8 @@ module.exports = {
         ...
     },
 
-    // Using the images property it's possible to configure images to include in the theme
+    // Using the images property it's possible to configure images to include in the theme.
+    // For this to work the assets directory must be configured on the build properties.
     images: {
         theme_frame: 'frame_image.png',
     }
@@ -175,6 +176,7 @@ build(theme, {
     },
     srcDir: 'src', // This defines the source location.
     outDir: 'build', // This defines where the XPI file is going to be placed.
+    assetsDir: undefined, // Define the directory containing the theme images.
 }
 ```
 

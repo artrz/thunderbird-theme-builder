@@ -70,4 +70,5 @@ interface ThunderbirdPackage {
     };
     srcDir: string;
     outDir: string;
+    assetsDir?: string;
 }
