@@ -1,26 +1,47 @@
 import * as sass from 'sass';
+import { lstatSync, readdirSync } from 'fs';
 import path from 'path';
 import storage from './storage.js';
 
 export default {
-    processFile(filePath?: string): ReadFile | undefined {
-        return filePath
-            ? {
-                    content: sass.compile(filePath, { style: 'expanded' }).css, // or 'compressed'
-                    filename: path.format({ ...path.parse(filePath), dir: '', base: '', ext: '.css' }),
-                }
-            : undefined;
-    },
+    getStylePaths(thunderbirdPackage: ThunderbirdPackage): string[] | undefined {
+        const stylePaths = thunderbirdPackage.stylesPath;
 
-    getStyleFilePath(thunderbirdPackage: ThunderbirdPackage): string | undefined {
-        const styleFilePath = thunderbirdPackage.stylesheet
-            ? path.join(thunderbirdPackage.srcDir, thunderbirdPackage.stylesheet)
-            : undefined;
-
-        if (styleFilePath && !storage.pathExists(styleFilePath)) {
-            throw new Error(`Style file "${styleFilePath}" not found.`);
+        if (!stylePaths) {
+            return undefined;
         }
 
-        return styleFilePath;
+        const paths = (Array.isArray(stylePaths) ? stylePaths : [stylePaths])
+            .map((stylesPath) => path.join(thunderbirdPackage.srcDir, stylesPath));
+
+        paths.forEach((stylesPath) => {
+            if (stylesPath && !storage.pathExists(stylesPath)) {
+                throw new Error(`Styles path "${stylesPath}" not found.`);
+            }
+        });
+
+        return paths;
+    },
+
+    processStylePaths(stylePaths: string[]): string {
+        return (Array.isArray(stylePaths) ? stylePaths : [stylePaths])
+            .map((stylePath) => lstatSync(stylePath).isDirectory()
+                ? compileDirectory(stylePath)
+                : compileFile(stylePath))
+            .join('\n');
     },
 };
+
+function compileDirectory(stylesDir: string): string {
+    const validExts = ['css', 'scss', 'sass'];
+    return readdirSync(stylesDir)
+        .filter((file) => storage.fileHasExtension(file, validExts))
+        .sort()
+        .map((file) => compileFile(path.join(stylesDir, file)))
+        .join('\n');
+}
+
+function compileFile(filePath: string): string {
+    const style = 'expanded'; // or 'compressed'
+    return sass.compile(filePath, { style }).css;
+}

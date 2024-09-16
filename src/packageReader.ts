@@ -10,7 +10,7 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
         version: props.version ?? themePackage.version,
         themeId: props.themeId ?? `${themePackage.name}@addons.thunderbird.net`,
         thunderbirdMinVersion: props.thunderbirdMinVersion ?? '115.0',
-        stylesheet: props.stylesheet,
+        stylesPath: props.stylesPath,
         author: {
             name: props.author?.name ?? themePackage.author?.name,
             url: props.author?.url ?? themePackage.author?.url,
@@ -28,9 +28,10 @@ function getThemePackage(): ThemePackage {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const themePackage: ThemePackage = JSON.parse(storage.readFile('package.json'));
 
+    // If the package object doesn't contain the `extra`, field we need to fix it.
     if (!(themePackage as Partial<ThemePackage>).extra) {
         themePackage.extra = {
-            // @ts-expect-error -- Just make sure the extra.thunderbird property exists.
+            // @ts-expect-error -- Add missing the options container.
             thunderbird: {},
         };
     }

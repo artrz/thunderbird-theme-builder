@@ -179,7 +179,7 @@ The default full configuration used when building the theme is:
     version: undefined,
     themeId: undefined,
     thunderbirdMinVersion: undefined,
-    stylesheet: undefined,
+    stylesPath: undefined,
     author: {
         name: undefined,
         url: undefined,
@@ -195,7 +195,7 @@ The most common case would be to use the following object as configuration:
 ```js
 {
     thunderbirdMinVersion: '128.0',
-    stylesheet: 'themeCustomStyles.scss',
+    stylesPath: 'themeCustomStyles.scss',
     assetsDir: 'src/assets',
 }
 ```
@@ -207,3 +207,6 @@ The package exposes a single function that needs to be called to build the theme
 generate the theme is by running the build.js file. If the build script was added as previously suggested,
 after configuring the theme colors and style file just run `npm run build` to generate the theme.
 The XPI file will be created in the directory configured in `outDir` which is './build' by default.
+
+
+You can see [Nord Hardt](https://github.com/artrz/thunderbird-nord-hardt-theme) as example.
