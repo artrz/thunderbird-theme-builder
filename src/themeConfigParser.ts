@@ -32,7 +32,7 @@ export default {
             color_scheme: Joi.object()
                 .pattern(
                     Joi.string(),
-                    Joi.string().pattern(/^#([0-9a-fA-F]{3,4})|([0-9a-fA-F]{6,8})$/u),
+                    Joi.alternatives().try(Joi.number(), Joi.string()),
                 )
                 .required(),
 
