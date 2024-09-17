@@ -22,16 +22,16 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
         return;
     }
 
-    const styleFilePath = styleParser.getStyleFilePath(thunderbirdPackage);
+    const stylesPaths = styleParser.getStylePaths(thunderbirdPackage);
+    const css = stylesPaths ? styleParser.processStylePaths(stylesPaths) : undefined;
 
-    const css = styleParser.processFile(styleFilePath);
     const themeColors = themeConfigParser.parseColors(themeConfig);
 
     const manifest = manifestGenerator.generate(
         themeColors,
         themeConfig.images,
         themePackage,
-        css?.filename,
+        Boolean(css),
     );
 
     const themeFilepath = pack(manifest, themePackage, css);
@@ -39,16 +39,16 @@ export function build(themeConfig: ThemeConfig, config?: Partial<ThunderbirdPack
     showInfo(manifest, themeFilepath);
 }
 
-function pack(manifest: Manifest, themePackage: ThemePackage, css?: ReadFile): string {
+function pack(manifest: Manifest, themePackage: ThemePackage, css?: string): string {
     const files: (string | ReadFile)[] = [{
         filename: 'manifest.json',
         content: JSON.stringify(manifest, null, 1),
     }];
 
-    if (css) {
+    if (manifest.theme_experiment.stylesheet && css) {
         files.push({
-            filename: css.filename,
-            content: css.content,
+            filename: manifest.theme_experiment.stylesheet,
+            content: css,
         });
     }
 

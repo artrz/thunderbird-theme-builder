@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import AdmZip from 'adm-zip';
+import path from 'path';
 
 export default {
     ensureDirectory(directoryPath: string): void {
@@ -14,6 +15,11 @@ export default {
 
     readFile(filePath: string, encoding?: BufferEncoding): string {
         return fs.readFileSync(filePath, { encoding: encoding ?? 'utf8' });
+    },
+
+    fileHasExtension(filename: string, validExtension: string | string[]) {
+        return (Array.isArray(validExtension) ? validExtension : [validExtension])
+            .includes(path.extname(filename).slice(1).toLowerCase());
     },
 
     zipCompress(fileName: string, filesList: (string | ReadFile)[]) {

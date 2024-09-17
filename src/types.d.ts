@@ -63,7 +63,7 @@ interface ThunderbirdPackage {
     themeId: string;
     version: string;
     thunderbirdMinVersion: string;
-    stylesheet?: string;
+    stylesPath?: string | string[];
     author: {
         name?: string;
         url?: string;

@@ -6,7 +6,7 @@ export default {
         themeColors: GeneratedThemeColors,
         themeImages: Record<string, string> | undefined,
         themePackage: ThemePackage,
-        cssFilename?: string,
+        hasCss: boolean,
     ): Manifest {
         const properties = themePackage.extra.thunderbird;
 
@@ -30,12 +30,13 @@ export default {
                 images: themeImages,
             },
             theme_experiment: {
-                stylesheet: cssFilename,
+                stylesheet: hasCss ? `${themePackage.name}.css` : undefined,
                 colors: themeColors.experimentColors,
             },
         };
     },
 
+    // eslint-disable-next-line max-lines-per-function
     validate(themePackage: ThemePackage) {
         const schema = Joi.object({
             name: Joi.string()
@@ -64,7 +65,11 @@ export default {
                     thunderbirdMinVersion: Joi.string()
                         .pattern(/^\d+(\.\d+)?$/u)
                         .required(),
-                    stylesheet: Joi.string(),
+                    stylesPath: Joi.alternatives()
+                        .try(
+                            Joi.string(),
+                            Joi.array().items(Joi.string()),
+                        ),
                     author: Joi.object({
                         name: Joi.string(),
                         url: Joi.string(),
