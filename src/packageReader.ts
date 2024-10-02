@@ -2,7 +2,7 @@ import storage from './storage.js';
 
 export default function packageReader(config?: Partial<ThunderbirdPackage>): ThemePackage {
     const themePackage = getThemePackage();
-    const props = getConfig(themePackage, config);
+    const props = getThemeProperties(themePackage, config);
 
     // Reconfigure to contain all the configured values or defaults.
     themePackage.extra.thunderbird = {
@@ -39,7 +39,7 @@ function getThemePackage(): ThemePackage {
     return themePackage;
 }
 
-function getConfig(
+function getThemeProperties(
     themePackage: Partial<ThemePackage>,
     config?: Partial<ThunderbirdPackage>,
 ): Partial<ThunderbirdPackage> {

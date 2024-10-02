@@ -1,7 +1,7 @@
 // @ts-check
 
-import eslint from '@eslint/js';
 import globals from 'globals';
+import pluginJs from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 
@@ -17,7 +17,7 @@ const style = stylistic.configs.customize({
 });
 
 export default tseslint.config(
-    eslint.configs.all,
+    pluginJs.configs.all,
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     {
@@ -29,8 +29,8 @@ export default tseslint.config(
             'capitalized-comments': 'off',       // We may comment code too
             'func-style': ['error', 'declaration', { allowArrowFunctions: true }], // Use declarations for hoisting, expressions for var scoping
             'key-spacing': 'off',                // So we can align object prop values
-            'max-statements': ['error', 15],     // Default (10) might be too strict
             'max-params': ['error', 4],          // 4 params is more reasonable
+            'max-statements': ['error', 15],     // Default (10) might be too strict
             'no-console': 'warn',                // We do need to output to console
             'no-inline-comments': 'off',         // Inline comments like this one
             'no-magic-numbers': ['warn', { ignore: [0, 1] }], // Lets be more practical

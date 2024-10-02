@@ -27,5 +27,7 @@
     },
     "include": [
         "src",
+        "esbuild.js",
+        "eslint.config.mjs"
     ],
 }
