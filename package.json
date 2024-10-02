@@ -67,7 +67,7 @@
         "@typescript-eslint/eslint-plugin": "^8.8.0",
         "@typescript-eslint/parser": "^8.8.0",
         "chai": "*",
-        "esbuild": "^0.23.1",
+        "esbuild": "^0.24.0",
         "eslint": "^9.9.1",
         "lefthook": "^1.7.14",
         "mocha": "*",
