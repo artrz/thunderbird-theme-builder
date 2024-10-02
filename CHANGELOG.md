@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2024-10-02
+
+### Changed
+
+- Bump @typescript-eslint/parser from 8.3.0 to 8.8.0 (#23)
+- Bump @eslint/js from 9.9.1 to 9.11.1 (#22)
+- Bump @typescript-eslint/eslint-plugin from 8.3.0 to 8.8.0 (#21)
+- Bump @types/chai from 4.3.19 to 5.0.0 (#20)
+- Bump esbuild from 0.23.1 to 0.24.0 (#19)
+- Update dependencies
+- Build library
+
+[https://github.com/artrz/thunderbird-theme-builder/compare/v0.3.0..v0.4.0](https://github.com/artrz/thunderbird-theme-builder/compare/v0.3.0..v0.4.0)
+
 ## [0.3.0] - 2024-09-17
 
 ### Changed
