@@ -243,7 +243,7 @@ be processed in alphabetical order.
 Even though any property can be defined/overridden is best advised to fully configure the package.json file
 and let the package get the information from there.
 
-Note on the manifest version: currently it's not possible to configure it, and is always set as version 2.
+Note on the manifest version: currently it's not possible to configure it and is always set as version 2, mainly because manifest v3 is only supported by TB 128+.
 
 
 ### Images

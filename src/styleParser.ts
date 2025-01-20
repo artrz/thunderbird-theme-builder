@@ -4,6 +4,10 @@ import path from 'path';
 import storage from './storage.js';
 
 export default {
+    /**
+     * Searches for the available styles returning the normalized path for each of them.
+     * A path existence verification is performed for each identified path.
+    */
     getStylePaths(thunderbirdPackage: ThunderbirdPackage): string[] | undefined {
         const stylePaths = thunderbirdPackage.stylesPath;
 
@@ -23,6 +27,9 @@ export default {
         return paths;
     },
 
+    /**
+     * Compile the styles inside the given paths and return the whole compiled data as a single string.
+     */
     processStylePaths(stylePaths: string[]): string {
         return stylePaths
             .map((stylePath) => lstatSync(stylePath).isDirectory()
