@@ -9,6 +9,7 @@ interface Manifest {
         gecko: {
             id: string;
             strict_min_version: string;
+            strict_max_version: string;
         };
     };
     theme: {
@@ -63,6 +64,7 @@ interface ThunderbirdPackage {
     themeId: string;
     version: string;
     thunderbirdMinVersion: string;
+    thunderbirdMaxVersion: string;
     stylesPath?: string | string[];
     author: {
         name?: string;

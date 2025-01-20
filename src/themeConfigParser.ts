@@ -4,7 +4,6 @@ import stub from './stubs/themeConfig.js';
 export default {
     /**
      * Generates the theme colors for manifest's theme.colors and theme_experiment.colors.
-     * The generated colors include
      */
     parseColors(themeConfig: ThemeConfig): GeneratedThemeColors {
         const colors = generateMainThemeColors(

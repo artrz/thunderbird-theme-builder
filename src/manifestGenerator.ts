@@ -14,15 +14,16 @@ export default {
         return {
             // https://webextension-api.thunderbird.net/en/128-esr-mv3/changes/esr128.html
             manifest_version: 2, // v3 support only for Thunderbird 128+
-            name: themePackage.displayName ?? themePackage.name,
+            name: properties.name,
             version: properties.version,
             description: themePackage.description,
-            author: themePackage.author?.name,
-            homepage_url: themePackage.author?.url,
+            author: properties.author.name,
+            homepage_url: properties.author.url,
             browser_specific_settings: {
                 gecko: {
                     id: properties.themeId,
                     strict_min_version: properties.thunderbirdMinVersion,
+                    strict_max_version: properties.thunderbirdMaxVersion,
                 },
             },
             theme: {
@@ -63,6 +64,9 @@ export default {
                             Joi.string().pattern(/^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/iu),
                         ),
                     thunderbirdMinVersion: Joi.string()
+                        .pattern(/^\d+(\.\d+)?$/u)
+                        .required(),
+                    thunderbirdMaxVersion: Joi.string()
                         .pattern(/^\d+(\.\d+)?$/u)
                         .required(),
                     stylesPath: Joi.alternatives()
