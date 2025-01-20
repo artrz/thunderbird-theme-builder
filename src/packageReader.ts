@@ -10,6 +10,7 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
         version: props.version ?? themePackage.version,
         themeId: props.themeId ?? `${themePackage.name}@addons.thunderbird.net`,
         thunderbirdMinVersion: props.thunderbirdMinVersion ?? '115.0',
+        thunderbirdMaxVersion: props.thunderbirdMaxVersion ?? '128.6',
         stylesPath: props.stylesPath,
         author: {
             name: props.author?.name ?? themePackage.author?.name,

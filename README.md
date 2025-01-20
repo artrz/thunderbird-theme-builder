@@ -187,14 +187,15 @@ A big part of the theme properties can be actually obtained from the project's p
 
 ### Complimenting the default properties
 
-There are two values which cannot be obtained from the default package.json structure:
-the theme id and the minimum required Thunderbird version.
+There are three values which cannot be obtained from the default package.json structure:
+the theme id and the minimum & maximum required Thunderbird versions.
 The following object shows how to configure them:
 
 ```js
 {
     themeId: 'customthemeid@domain.ext',
-    thunderbirdMinVersion: '128.0',
+    thunderbirdMinVersion: '115.0',
+    thunderbirdMaxVersion: '129.0',
 }
 ```
 
@@ -229,7 +230,8 @@ be processed in alphabetical order.
         url: undefined,  // The author website.
     },
 
-    thunderbirdMinVersion: '115.0', // The minimum Thunderbird version required for the theme.
+    thunderbirdMinVersion: '115.0', // The minimum Thunderbird version supported by the theme.
+    thunderbirdMaxVersion: '129.0', // The maximum Thunderbird version supported by the theme.
 
     srcDir: 'src',         // Where the source files are located.
     outDir: 'build',       // Where the XPI file is going to be placed.

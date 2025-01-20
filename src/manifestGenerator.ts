@@ -23,6 +23,7 @@ export default {
                 gecko: {
                     id: properties.themeId,
                     strict_min_version: properties.thunderbirdMinVersion,
+                    strict_max_version: properties.thunderbirdMaxVersion,
                 },
             },
             theme: {
@@ -63,6 +64,9 @@ export default {
                             Joi.string().pattern(/^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/iu),
                         ),
                     thunderbirdMinVersion: Joi.string()
+                        .pattern(/^\d+(\.\d+)?$/u)
+                        .required(),
+                    thunderbirdMaxVersion: Joi.string()
                         .pattern(/^\d+(\.\d+)?$/u)
                         .required(),
                     stylesPath: Joi.alternatives()
