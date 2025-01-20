@@ -53,9 +53,12 @@ function pack(manifest: Manifest, themePackage: ThemePackage, css?: string): str
     }
 
     if (themePackage.extra.thunderbird.assetsDir) {
+        const filesToIgnore = ['.DS_Store'];
         const { assetsDir } = themePackage.extra.thunderbird;
-        readdirSync(assetsDir).forEach((file) => {
-            files.push(path.join(assetsDir, file));
+        readdirSync(assetsDir).forEach((fileName) => {
+            if (!filesToIgnore.includes(fileName)) {
+                files.push(path.join(assetsDir, fileName));
+            }
         });
     }
 
