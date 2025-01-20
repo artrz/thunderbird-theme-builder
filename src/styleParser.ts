@@ -24,7 +24,7 @@ export default {
     },
 
     processStylePaths(stylePaths: string[]): string {
-        return (Array.isArray(stylePaths) ? stylePaths : [stylePaths])
+        return stylePaths
             .map((stylePath) => lstatSync(stylePath).isDirectory()
                 ? compileDirectory(stylePath)
                 : compileFile(stylePath))
