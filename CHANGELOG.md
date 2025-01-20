@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-01-20
+
+### Added
+
+- Add max Thunderbird version setting (#42)
+
+### Changed
+
+- Bump sass from 1.79.4 to 1.80.5 (#26)
+- Bump lefthook from 1.7.18 to 1.8.2 (#25)
+- Bump @stylistic/eslint-plugin from 2.8.0 to 2.10.1 (#24)
+- Bump mocha and @types/mocha (#27)
+- Bump typescript-eslint from 8.8.0 to 8.19.0 (#38)
+- Bump @typescript-eslint/eslint-plugin from 8.19.0 to 8.21.0 (#40)
+- Bump @stylistic/eslint-plugin from 2.10.1 to 2.13.0 (#39)
+- Bump lefthook from 1.8.2 to 1.10.1 (#35)
+- Update dependencies (#41)
+
+[https://github.com/artrz/thunderbird-theme-builder/compare/v0.4.0..v0.5.0](https://github.com/artrz/thunderbird-theme-builder/compare/v0.4.0..v0.5.0)
+
 ## [0.4.0] - 2024-10-02
 
 ### Changed
