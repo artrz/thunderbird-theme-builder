@@ -53,26 +53,26 @@
     "dependencies": {
         "adm-zip": "^0.5.16",
         "joi": "^17.13.3",
-        "sass": "^1.80.5"
+        "sass": "^1.83.4"
     },
     "devDependencies": {
-        "@eslint/js": "^9.11.1",
-        "@favware/cliff-jumper": "^4.1.0",
+        "@eslint/js": "^9.18.0",
+        "@favware/cliff-jumper": "^6.0.0",
         "@stylistic/eslint-plugin": "^2.13.0",
-        "@types/adm-zip": "^0.5.5",
+        "@types/adm-zip": "^0.5.7",
         "@types/chai": "*",
         "@types/eslint__js": "^8.42.3",
         "@types/mocha": "*",
         "@types/node": "22.x",
         "@typescript-eslint/eslint-plugin": "^8.21.0",
-        "@typescript-eslint/parser": "^8.8.0",
+        "@typescript-eslint/parser": "^8.21.0",
         "chai": "*",
-        "esbuild": "^0.24.0",
-        "eslint": "^9.11.1",
-        "lefthook": "^1.10.1",
+        "esbuild": "^0.24.2",
+        "eslint": "^9.18.0",
+        "lefthook": "^1.10.9",
         "mocha": "*",
         "npm-run-all": "^4.1.5",
         "typescript": "^5.6.2",
-        "typescript-eslint": "^8.19.0"
+        "typescript-eslint": "^8.21.0"
     }
 }
