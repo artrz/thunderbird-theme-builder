@@ -252,6 +252,7 @@ There are two ways to use images: setting images as resources for the theme and 
 After configuring the assets directory and placing the images there, all of them are going to be copied to the root directory of the theme
 so to refer to them it's only required to use their filename.
 
+
 ## Build
 
 The package exposes a single function that needs to be called to build the theme. The simplest way to
@@ -262,3 +263,29 @@ after configuring the theme colors and style file just run `npm run build` to ge
 ## Examples
 
 See [Nord Hardt](https://github.com/artrz/thunderbird-nord-hardt-theme) for an actual example.
+
+
+## Release Notes
+
+See the [changelog](./CHANGELOG.md).
+
+
+## Contributing
+
+First of, thanks for your interest in helping out!
+
+Lefthook is configured to automatically perform tasks on pre-commit and pre-push hooks. To install the git hooks in your repo clone run `npm run prepare`, this way, [the configured hooks](./lefthook.yml) will be automatically executed.
+
+There's also a [github workflow](./.github/workflows/semantic-pull-request.yml) to ensure consistent commit messages on PRs using [Commitlint](https://commitlint.js.org/).
+
+
+## Versioning and releasing
+
+Use `npm run bump` to increment the version and update the changelog and commit the changes.
+To "undo" a bump, use `npm run debump [THE GENERATED TAG]` which undoes the commit and deletes the tag.
+Finally, run `npm run publish` to push the changes along with the new tag and build the theme so it's ready to be uploaded.
+
+
+## License
+
+See the [license](./LICENSE.md).
