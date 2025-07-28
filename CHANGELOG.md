@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-07-28
+
+### Added
+
+- Add compiled executable
+
+### Changed
+
+- Bump eslint from 9.18.0 to 9.25.1 (#59)
+- Update deps and ease dependabot  (#60)
+- Update readme
+- Update npm script
+- Allow to use package.json's homepage_url as the theme url (#63)
+- Bump @stylistic/eslint-plugin to 5.2.2
+
+[https://github.com/artrz/thunderbird-theme-builder/compare/v0.5.0..v0.6.0](https://github.com/artrz/thunderbird-theme-builder/compare/v0.5.0..v0.6.0)
+
 ## [0.5.0] - 2025-01-20
 
 ### Added
