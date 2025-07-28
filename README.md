@@ -223,14 +223,14 @@ be processed in alphabetical order.
 
 ```js
 {
-    name: undefined,                  // The theme name.
-    version: undefined,               // The theme version. Eg: 1, 1.0, 1.0.0.
-    themeId: undefined,               // The theme id.
+    name: undefined,       // The theme name.
+    version: undefined,    // The theme version. Eg: 1, 1.0, 1.0.0.
+    themeId: undefined,    // The theme id.
     author: {
-        name: undefined, // The author name.
-        url: undefined,  // The author website.
+        name: undefined,   // The author name.
+        url: undefined,    // The author website.
     },
-    homepage: undefined, // The theme homepage.
+    homepage: undefined,   // The theme homepage.
 
     thunderbirdMinVersion: '115.0', // The minimum Thunderbird version supported by the theme.
     thunderbirdMaxVersion: '129.0', // The maximum Thunderbird version supported by the theme.
@@ -265,6 +265,17 @@ after configuring the theme colors and style file just run `npm run build` to ge
 ## Examples
 
 See [Nord Hardt](https://github.com/artrz/thunderbird-nord-hardt-theme) for an actual example.
+
+
+## Full local theme development
+
+To link this library locally with a theme
+ 1. From the root directory of this project run `npm link`. This makes the component globally available.
+ 2. From the root directory of your theme, run `npm link thunderbird-theme-builder`.
+ 3. Make sure to call `npm run compile` or `npm run watch:esbuild` to compile changes.
+
+To unlink and clean up
+ 1. From the root directory of your theme, run `npm unlink --no-save thunderbird-theme-builder && npm install`.
 
 
 ## Release Notes
