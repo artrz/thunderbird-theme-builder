@@ -304,6 +304,10 @@ uses the commit messages to define the version change.
 
 ## Versioning and releasing
 
+Once you're in the main branch with all changes merged and ready to release a new version:
+
+*Don't forget to compile and upload the latest executable (`npm run compile` + commit index.js).
+
 Use `npm run bump` to increment the version and update the changelog and commit the changes. Internally,
 `bump` uses cliff-jumper to automatize the process.
 
