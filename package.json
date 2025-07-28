@@ -36,7 +36,7 @@
         "esbuild": "node esbuild.js",
         "tscheck": "tsc --noEmit",
         "watch:esbuild": "npm run esbuild -- --watch",
-        "watch:tscheck": "tsc --noEmit --watch",
+        "watch:tscheck": "npm run tscheck -- --watch",
         "watch": "npm-run-all -p watch:*",
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . --watch --outDir out",
