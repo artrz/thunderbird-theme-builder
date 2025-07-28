@@ -184,6 +184,7 @@ A big part of the theme properties can be actually obtained from the project's p
  - `description`: used as the theme description.
  - `author.name`: used as the author's name.
  - `author.url`: used as the author's home page.
+ - `homepage_url`: used as the theme's home page.
 
 ### Complimenting the default properties
 
@@ -229,6 +230,7 @@ be processed in alphabetical order.
         name: undefined, // The author name.
         url: undefined,  // The author website.
     },
+    homepage: undefined, // The theme homepage.
 
     thunderbirdMinVersion: '115.0', // The minimum Thunderbird version supported by the theme.
     thunderbirdMaxVersion: '129.0', // The maximum Thunderbird version supported by the theme.

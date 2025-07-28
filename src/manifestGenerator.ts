@@ -12,13 +12,12 @@ export default {
 
         // https://developer.thunderbird.net/add-ons/mailextensions/supported-manifest-keys
         return {
-            // https://webextension-api.thunderbird.net/en/128-esr-mv3/changes/esr128.html
             manifest_version: 2, // v3 support only for Thunderbird 128+
             name: properties.name,
             version: properties.version,
             description: themePackage.description,
             author: properties.author.name,
-            homepage_url: properties.author.url,
+            homepage_url: properties.homepage ?? properties.author.url,
             browser_specific_settings: {
                 gecko: {
                     id: properties.themeId,
@@ -78,6 +77,7 @@ export default {
                         name: Joi.string(),
                         url: Joi.string(),
                     }).required(),
+                    homepage: Joi.string(),
                     srcDir: Joi.string()
                         .required(),
                     outDir: Joi.string()

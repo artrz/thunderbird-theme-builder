@@ -54,6 +54,7 @@ interface ThemePackage {
         name?: string;
         url?: string;
     };
+    homepage?: string;
     extra: {
         thunderbird: ThunderbirdPackage;
     };
@@ -70,6 +71,7 @@ interface ThunderbirdPackage {
         name?: string;
         url?: string;
     };
+    homepage?: string;
     srcDir: string;
     outDir: string;
     assetsDir?: string;

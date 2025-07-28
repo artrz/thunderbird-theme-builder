@@ -21,6 +21,7 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
             name: props.author?.name ?? themePackage.author?.name,
             url: props.author?.url ?? themePackage.author?.url,
         },
+        homepage: themePackage.homepage,
         srcDir: props.srcDir ?? 'src',
         outDir: props.outDir ?? 'build',
         assetsDir: props.assetsDir,
