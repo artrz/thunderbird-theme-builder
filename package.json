@@ -58,7 +58,7 @@
     "devDependencies": {
         "@eslint/js": "^9.32.0",
         "@favware/cliff-jumper": "^6.0.0",
-        "@stylistic/eslint-plugin": "^2.13.0",
+        "@stylistic/eslint-plugin": "^5.2.2",
         "@types/adm-zip": "^0.5.7",
         "@types/chai": "*",
         "@types/mocha": "*",
