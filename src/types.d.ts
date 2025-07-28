@@ -1,3 +1,6 @@
+/**
+ * The Thunderbird manifest structure.
+ */
 interface Manifest {
     manifest_version: number;
     name: string;
@@ -45,6 +48,9 @@ interface ReadFile {
     filename: string;
 }
 
+/**
+ * The package.json file structure.
+ */
 interface ThemePackage {
     name: string;
     version: string;
@@ -60,6 +66,9 @@ interface ThemePackage {
     };
 }
 
+/**
+ * The configuration structure.
+ */
 interface ThunderbirdPackage {
     name: string;
     themeId: string;

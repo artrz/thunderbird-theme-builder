@@ -3,7 +3,7 @@ import storage from './storage.js';
 /**
  * Extracts all the required information for theme generation.
  * Here we do basically two things: Merge data coming from the package.json file
- * with the one in the config file and define some defaults for missing data.
+ * with the one in the config file and define some defaults for the missing data.
  */
 export default function packageReader(config?: Partial<ThunderbirdPackage>): ThemePackage {
     const themePackage = getThemePackage();
@@ -31,7 +31,8 @@ export default function packageReader(config?: Partial<ThunderbirdPackage>): The
 }
 
 /**
- * Loads and returns the package.json file contents.
+ * Loads and returns the package.json file contents. Here we also make sure the
+ * sub-keys `extra: {thunderbird: {}}` are defined in the returned object.
  */
 function getThemePackage(): ThemePackage {
     // Assume the parsed object corresponds to a ThemePackage type.

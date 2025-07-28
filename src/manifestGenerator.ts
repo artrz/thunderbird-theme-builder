@@ -2,6 +2,9 @@ import Joi from 'joi';
 import storage from './storage';
 
 export default {
+    /**
+     * Generates the theme manifest file.
+     */
     generate(
         themeColors: GeneratedThemeColors,
         themeImages: Record<string, string> | undefined,
