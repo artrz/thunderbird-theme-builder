@@ -66,11 +66,10 @@ export default {
                             Joi.string().pattern(/^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/iu),
                         ),
                     thunderbirdMinVersion: Joi.string()
-                        .pattern(/^\d+(\.\d+)?$/u)
+                        .pattern(/^\d+(\.\d+|\.\*)?$/u)
                         .required(),
                     thunderbirdMaxVersion: Joi.string()
-                        .pattern(/^\d+(\.\d+)?$/u)
-                        .required(),
+                        .pattern(/^\d+(\.\d+|\.\*)?$/u),
                     stylesPath: Joi.alternatives()
                         .try(
                             Joi.string(),

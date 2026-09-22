@@ -196,7 +196,7 @@ The following object shows how to configure them:
 {
     themeId: 'customthemeid@domain.ext',
     thunderbirdMinVersion: '115.0',
-    thunderbirdMaxVersion: '129.0',
+    thunderbirdMaxVersion: '153.3',
 }
 ```
 
@@ -233,7 +233,7 @@ be processed in alphabetical order.
     homepage: undefined,   // The theme homepage.
 
     thunderbirdMinVersion: '115.0', // The minimum Thunderbird version supported by the theme.
-    thunderbirdMaxVersion: '129.0', // The maximum Thunderbird version supported by the theme.
+    thunderbirdMaxVersion: '153.3', // The maximum Thunderbird version supported by the theme.
 
     srcDir: 'src',         // Where the source files are located.
     outDir: 'build',       // Where the XPI file is going to be placed.
