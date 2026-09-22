@@ -301,6 +301,28 @@ to ensure it's conformant with the [conventional commit structure](https://www.c
 Failing to comply wont let the PR to merge. This is important because the versioning tool
 uses the commit messages to define the version change.
 
+AI Policy: AI based contributions will be kindly rejected. Thanks for your understanding.
+
+### Main scripts
+
+ - `init`          : Initializes the repo
+ - `esbuild`       :               ": "node esbuild.js",
+ - `tscheck`       : Verify everything can be compiled without generating files
+ - `watch:esbuild` : `esbuild` -- --watch
+ - `watch:tscheck` : `tscheck` -- --watch",
+ - `watch`         :: "npm-run-all -p watch:*",
+ - `compile-tests` :: "tsc -p . --outDir out",
+ - `watch-tests`   :: "tsc -p . --watch --outDir out",
+ - `pretest`       : `compile-tests`
+ - `test`          : Run yar tests
+ - `lint`          : lint via eslint
+ - `inspect`       : `tscheck` && `lint`
+ - `compile`       : `inspect` && `esbuild` -- --production
+ - `pack`          : `compile` && npm pack
+ - `bump`          : Use when there are no more changes left and new version is ready to launch.
+ - `debump`        : Undoes a bump call
+ - `publish`       : Publish the update. Can include uploading new versions to other sites.
+
 
 ## Versioning and releasing
 

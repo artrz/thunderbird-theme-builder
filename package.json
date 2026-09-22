@@ -51,27 +51,28 @@
         "publish": "git push origin main && git push --tags"
     },
     "dependencies": {
-        "adm-zip": "^0.5.16",
-        "joi": "^17.13.3",
-        "sass": "^1.89.2"
+        "adm-zip": "^0.6.1",
+        "joi": "^18.2.9",
+        "sass": "^1.105.0"
     },
     "devDependencies": {
-        "@eslint/js": "^9.32.0",
-        "@favware/cliff-jumper": "^6.0.0",
-        "@stylistic/eslint-plugin": "^5.2.2",
-        "@types/adm-zip": "^0.5.7",
+        "@eslint/js": "^10.0.1",
+        "@favware/cliff-jumper": "^6.1.0",
+        "@stylistic/eslint-plugin": "^5.10.0",
+        "@types/adm-zip": "^0.5.8",
         "@types/chai": "*",
         "@types/mocha": "*",
-        "@types/node": "22.x",
-        "@typescript-eslint/eslint-plugin": "^8.38.0",
-        "@typescript-eslint/parser": "^8.38.0",
+        "@types/node": "22.20.4",
+        "@typescript-eslint/eslint-plugin": "^8.70.1",
+        "@typescript-eslint/parser": "^8.70.1",
         "chai": "*",
-        "esbuild": "^0.25.8",
-        "eslint": "^9.32.0",
-        "lefthook": "^1.12.2",
+        "esbuild": "^0.28.2",
+        "eslint": "^10.11.0",
+        "globals": "^17.12.0",
+        "lefthook": "^2.1.14",
         "mocha": "*",
         "npm-run-all": "^4.1.5",
-        "typescript": "^5.8.3",
-        "typescript-eslint": "^8.38.0"
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.70.1"
     }
 }
